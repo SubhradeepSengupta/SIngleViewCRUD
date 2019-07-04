@@ -1,0 +1,19 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <h1 class="form-group" style="text-align: center">Form</h1>
+    <input type="text" name="personId" [value]="service.FormData.personId" hidden>
+    <div class="form-group">
+        <input name="personName" #personName="ngModel" [(ngModel)]="service.FormData.personName" class="form-control"
+            placeholder="Enter your name" maxlength="25" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter your Designation" name="personDesignation"
+            #personDesignation="ngModel" [(ngModel)]="service.FormData.personDesignation" maxlength="20" required>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter your age" name="personAge" #personAge="ngModel"
+            [(ngModel)]="service.FormData.personAge" maxlength="3" minlength="2" required>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
+</form>
